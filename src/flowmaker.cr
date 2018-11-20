@@ -18,3 +18,10 @@ class PlistTemplate
   ECR.def_to_s("#{__DIR__}/flowplist.xml.ecr")
 end
 
+module Flowmaker
+  def self.workflow
+    a = [] of Action
+    yield a
+    PlistTemplate.new(a).to_s
+  end
+end
