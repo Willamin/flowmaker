@@ -6,7 +6,7 @@ authors:
 
 targets:
   flowmaker:
-    main: src/flowmaker.cr
+    main: src/app.cr
 
 crystal: 0.27.0
 
@@ -18,7 +18,6 @@ development_dependencies:
     # version: ~> 1.2.0
     branch: master
 
-# dependencies:
-#   name:
-#     github: user/name
-#     version: ~> 1.0.0
+dependencies:
+  stdimp:
+    github: willamin/stdimp
