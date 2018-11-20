@@ -1,14 +1,10 @@
 require "ecr"
+require "./plist_template"
 require "./action"
 require "./actions/*"
 
 module Flowmaker
   VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
-end
-
-class PlistTemplate
-  def initialize(@actions : Array(Action)); end
-  ECR.def_to_s("#{__DIR__}/flowplist.xml.ecr")
 end
 
 class Flowmaker::Workflow
