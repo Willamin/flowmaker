@@ -1,5 +1,7 @@
 # flowmaker
 
+A DSL for writing iOS Workflows/Shortcuts.
+
 ## Contributing
 
 1. Fork it ( https://github.com/willamin/flowmaker/fork )
