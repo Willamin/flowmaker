@@ -5,7 +5,7 @@
 <dict>
   <% @params.each do |param_name, param_value| %>
   <key><%= param_name %></key>
-  <%= param_value %>
+  <%= plistify(param_value) %>
   <% end %>
 </dict>
 </dict>
