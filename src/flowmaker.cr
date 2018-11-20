@@ -25,3 +25,16 @@ module Flowmaker
     PlistTemplate.new(a).to_s
   end
 end
+
+class Flowmaker::Workflow
+  @actions = [] of Action
+  def action(name : String, &block)
+    a = Action.new(name)
+    with a yield
+    @actions << a
+  end
+
+  def to_s(io)
+    io << PlistTemplate.new(@actions)
+  end
+end

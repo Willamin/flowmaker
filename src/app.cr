@@ -23,6 +23,9 @@ end
 source_file = source_file?.not_nil!
 temp_dir = Dir.tempdir
 
-`crystal run #{source_file} > #{temp_dir}/intermediate.xml`
-`plutil -convert binary1 -o #{temp_dir}/output.shortcut #{temp_dir}/intermediate.xml`
-`mv #{temp_dir}/output.shortcut ./#{source_file}.shortcut`
+steps = [] of String
+steps << "crystal run #{source_file} > #{temp_dir}/intermediate.xml"
+steps << "plutil -convert binary1 -o #{temp_dir}/output.shortcut #{temp_dir}/intermediate.xml"
+steps << "mv #{temp_dir}/output.shortcut ./#{source_file}.shortcut"
+
+`#{steps.join(" && ")}`
